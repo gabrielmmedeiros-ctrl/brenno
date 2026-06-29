@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ShopFácil | Detalhes do Produto</title>
+
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+<header>
+      <div class="logo">
+        <img 
+        src="img/logo.png" 
+        alt="Logo SHOPFÁCIL"
+        width="50"
+        height="50">
+        
+        <h1>SHOP<span>FÁCIL</span></h1>
+      </div>
+</header>
+
+<section class="breadcrumb">
+    <a href="index.html">Início</a>
+    <span>/</span>
+    <a href="produtos.html">Produtos</a>
+    <span>/</span>
+    <span class="atual">Headset Bluetooth</span>
+</section>
+<main>
+
+<section class="detalhe-produto">
+
+    <div class="galeria">
+            <div class="miniaturas">
+                <img
+                src="img/headset.png"
+                onclick="trocarImagem(this)"
+                class="ativa">
+            </div>
+
+            <div class="imagem-principal">
+                <img
+                id="imagemPrincipal"
+                src="img/headset.png"
+                alt="Headset Bluetooth">
+            </div>
+        </div>
+
+        <div class="info-produto">
+            <h1>Headset Bluetooth</h1>
+
+            <div class="avaliacao-produto">
+                ★★★★★
+                <span>(128 avaliações)</span>
+            </div>
+
+            <div class="preco-produto">
+                <span class="preco-antigo">
+                  R$ 259,90
+                </span>
+                <h2>R$ 199,90</h2>
+                <p>ou 12x de R$ 16,65</p>
+            </div>
+            
+            <section class="descricao-produto">
+                <h2>Descrição do Produto</h2>
+                <p>
+                    Headset Bluetooth com áudio de alta definição,
+                    conexão estável e bateria de longa duração.
+                    Ideal para trabalho, jogos e entretenimento.
+                </p>
+            </section>
+
+            <h3>Cor</h3>
+              <div class="cores">
+                <button
+                    class="cor-preto ativo"
+                    data-cor="Preta"
+                    onclick="selecionarCor(this, 'img/headset.png')">
+                </button>
+              </div>
+            <input
+            type="hidden"
+            id="corSelecionada"
+            value="Preto/Laranja">
+
+            <div class="especificacoes">
+                <div class="item-especificacao">
+                    <strong>Conectividade</strong>
+                    <span>Bluetooth 5.3</span>
+                </div>
+
+                <div class="item-especificacao">
+                    <strong>Bateria</strong>
+                    <span>40 horas</span>
+                </div>
+
+                <div class="item-especificacao">
+                    <strong>Microfone</strong>
+                    <span>Integrado</span>
+                </div>
+
+                <div class="item-especificacao">
+                    <strong>Compatibilidade</strong>
+                    <span>Android, iOS e PC</span>
+                </div>
+            </div>
+
+            <br>
+            <form onsubmit="calcularTotal(event)">
+                <br><br>
+                <label for="quantidade">Quantidade:</label>
+                <input type="number" id="quantidade" value="1" min="1">
+                <br><br>
+                <div class="acoes-produto">
+                    <button class="comprar">
+                    Comprar Agora
+                    </button>
+                    <button class="carrinho-btn" onclick="adicionarAoCarrinho(event)">
+                    Adicionar ao Carrinho
+                    </button>
+                </div>
+                <div class="frete">
+                    <h3>Calcular frete</h3>
+                    <input
+                    type="text"
+                    placeholder="Digite seu CEP">
+                    <button>
+                    Calcular
+                    </button>
+                </div>
+                <div class="beneficios">
+                    <div>🚚 Frete grátis acima de R$199</div>
+                    <div>🔒 Compra segura</div>
+                    <div>↩️ Troca em até 30 dias</div>
+                    <div>💳 Parcelamento em até 12x</div>
+                </div>
+            </form>
+            <p id="total"></p>
+        </div>
+    </section>
+</main>
+
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-coluna">
+                <h3>SHOP<span>FÁCIL</span></h3>
+                <p>
+                    Equipamentos esportivos, tecnologia
+                    e acessórios para elevar sua performance.
+                </p>
+            </div>
+            <div class="footer-coluna">
+                <h4>Navegação</h4>
+                <a href="index.html">Início</a>
+                <a href="produtos.html">Produtos</a>
+                <a href="contato.html">Contato</a>
+            </div>
+            <div class="footer-coluna">
+                <h4>Categorias</h4>
+                <a href="#">Corrida</a>
+                <a href="#">Musculação</a>
+                <a href="#">Tecnologia</a>
+                <a href="#">Suplementos</a>
+            </div>
+            <div class="footer-coluna">
+                <h4>Contato</h4>
+                <p>(71) 98447-7541</p>
+                <p>contato@shopfacil.com</p>
+                <p>Salvador - BA</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>
+                © 2026 ShopFácil. Todos os direitos reservados.
+            </p>
+        </div>
+    </footer>
+
+<script>
+  function calcularTotal(event) {
+
+    event.preventDefault();
+
+    let quantidade = 
+    document.getElementById("quantidade").value;
+
+    let tamanho = 
+    document.getElementById("tamanho").value;
+
+    if (tamanho === ""){
+      alert("Selecione um item!");
+      return 0;
+    }
+
+    let preco = 199.90;
+
+    let total = quantidade * preco;
+
+    document.getElementById("total").innerText =
+      "Total: R$ " + total.toFixed(2) + 
+      " | Tamanho: " + tamanho;
+  }
+</script>
+ 
+<script src="js/main.js"></script>
+</body>
+</html>

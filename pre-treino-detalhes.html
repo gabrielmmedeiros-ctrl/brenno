@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ShopFácil | Detalhes do Produto</title>
+
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+<header>
+      <div class="logo">
+        <img 
+        src="img/logo.png" 
+        alt="Logo SHOPFÁCIL"
+        width="50"
+        height="50">
+        
+        <h1>SHOP<span>FÁCIL</span></h1>
+      </div>
+</header>
+
+<section class="breadcrumb">
+    <a href="index.html">Início</a>
+    <span>›</span>
+    <a href="produtos2.html">Produtos</a>
+    <span>›</span>
+    <span class="atual">Pré Treino</span>
+</section>
+<main>
+
+  <section class="detalhe-produto">
+
+    <div class="galeria">
+        <div class="miniaturas">
+            <img 
+            src="img/pre-treino.png"
+            onclick="trocarImagem(this)"
+            class="ativa">
+        </div>
+        
+        <div class="imagem-principal">
+            <img 
+            id="imagemPrincipal" 
+            src="img/pre-treino.png"
+            alt="Pré Treino">
+        </div>
+    </div>
+
+    <div class="info-produto">
+      <h1>Pré Treino</h1>
+      <div class="avaliacao-produto">
+          ★★★★★
+          <span>(128 avaliações)</span>
+      </div>
+
+      <div class="preco-produto">
+      <span class="preco-antigo" id="precoAntigo">
+        R$ 99,90
+      </span>
+      <h2 id="precoExibido">
+        R$ 69,90 
+      </h2>
+      <p id="parcelamento">
+        ou 12x de R$ 5,82 sem juros
+      </p>
+      </div>
+
+      <section class="descricao-produto">
+        <h2>Descrição do Produto</h2>
+        <p>
+          O Pré Treino é um suplemento alimentar em pó ideal 
+          para quem busca melhorar o desempenho físico durante os 
+          treinos. Ele contém uma combinação de ingredientes que 
+          ajudam a aumentar a energia, a resistência e o foco, 
+          permitindo que você treine com mais intensidade e 
+          por mais tempo. Com sabores deliciosos, o Pré Treino 
+          é perfeito para quem deseja potencializar os resultados 
+          dos exercícios e alcançar seus objetivos de forma mais eficiente. 
+        </p>
+      </section>
+
+      <h3>Tamanhos</h3>
+
+      <div class="tamanhos-produto">
+
+        <button
+          type="button"
+          class="tamanho-produto ativo"
+          data-preco="69.90"
+          onclick="selecionarTamanho(this, 69.90)">
+          150g
+        </button>
+
+        <button
+          type="button"
+          class="tamanho-produto"
+          data-preco="149.90"
+          onclick="selecionarTamanho(this, 149.90)">
+          320g
+        </button>
+
+        <button
+          type="button"
+          class="tamanho-produto"
+          data-preco="239.90"
+          onclick="selecionarTamanho(this, 239.90)">
+          500g
+        </button>
+
+      </div>
+
+      <h3>Sabor</h3>
+
+      <div class="sabores-produto">
+        <button
+          type="button"
+          class="sabor-produto ativo"
+          data-sabor="Limão"
+          onclick="selecionarSabor(this, 'Limão')">
+          Limão
+        </button>
+
+        <button
+          type="button"
+          class="sabor-produto"
+          data-sabor="Morango"
+          onclick="selecionarSabor(this, 'Morango')">
+          Morango
+        </button>
+
+        <button
+          type="button"
+          class="sabor-produto"
+          data-sabor="Frutas citricas"
+          onclick="selecionarSabor(this, 'Frutas citricas')">
+          Frutas Citrícas
+        </button>
+
+      </div>
+
+      <input 
+      type="hidden" 
+      id="precoAtual" 
+      value="69.90">
+
+      <input
+      type="hidden"
+      id="tamanhoSelecionado"
+      value="150g">
+
+      <input
+      type="hidden"
+      id="saborSelecionado"
+      value="Limão">
+
+      <div class="especificacoes">
+        <div class="item-especificacao">
+          <strong>Conteúdo</strong>
+          <span>150g • 320g • 500g</span>
+        </div>
+
+      <div class="item-especificacao">
+        <strong>Tipo</strong>
+        <span>Pré Treino</span>
+      </div>
+
+      <div class="item-especificacao">
+        <strong>Porções</strong>
+        <span>Quantidade varia conforme a embalagem</span>
+      </div>
+
+      <div class="item-especificacao">
+        <strong>Sabor</strong>
+        <span>Limão • Morango • Frutas Citrícas</span>
+      </div>
+
+      <div class="item-especificacao">
+        <strong>Indicação</strong>
+        <span>Melhora do desempenho físico e energia</span>
+      </div>
+
+      <div class="item-especificacao">
+        <strong>Validade</strong>
+        <span>24 meses</span>
+      </div>
+
+      </div>
+
+      <br>
+
+      <form onsubmit="calcularTotal(event)">
+        <label for="tamanho">Tamanho / Conteúdo</label>
+        <div class="tamanhos">
+          <button type="button" class="ativo" onclick="selecionarTamanho(this)">150g</button>
+          <button type="button" onclick="selecionarTamanho(this)">320g</button>
+          <button type="button" onclick="selecionarTamanho(this)">500g</button>
+        </div>
+        <input type="hidden" id="tamanhoSelecionado" value="150g">
+        <p id="tamanhoSelecionadoTexto" class="tamanho-selecionado">Tamanho selecionado: 150g</p>
+        <br><br>
+        <label for="quantidade">Quantidade:</label>
+        <input type="number" id="quantidade" value="1" min="1"> 
+        <br><br>
+
+        <div class="acoes-produto">
+          <button class="comprar">
+            Comprar Agora
+          </button>
+
+          <button class="carrinho-btn" onclick="adicionarAoCarrinho(event)">
+            Adicionar ao Carrinho
+          </button>
+        </div>
+
+        <div class="frete">
+          <h3>Calcular frete</h3>
+          <input
+            type="text"
+            placeholder="Digite seu CEP">
+          <button>
+            Calcular
+          </button>
+        </div>
+
+        <div class="beneficios">
+          <div>🚚 Frete grátis acima de R$199</div>
+          <div>🔒 Compra segura</div>
+          <div>↩️ Troca em até 30 dias</div>
+          <div>💳 Parcelamento em até 6x</div>
+        </div>
+      </form>
+      <p id="total"></p>
+    </div>
+  </section>
+</main>
+
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-coluna">
+                <h3>SHOP<span>FÁCIL</span></h3>
+                <p>
+                    Equipamentos esportivos, tecnologia
+                    e acessórios para elevar sua performance.
+                </p>
+            </div>
+            <div class="footer-coluna">
+                <h4>Navegação</h4>
+                <a href="index.html">Início</a>
+                <a href="produtos.html">Produtos</a>
+                <a href="contato.html">Contato</a>
+            </div>
+            <div class="footer-coluna">
+                <h4>Categorias</h4>
+                <a href="#">Corrida</a>
+                <a href="#">Musculação</a>
+                <a href="#">Tecnologia</a>
+                <a href="#">Suplementos</a>
+            </div>
+            <div class="footer-coluna">
+                <h4>Contato</h4>
+                <p>(71) 98447-7541</p>
+                <p>contato@shopfacil.com</p>
+                <p>Salvador - BA</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>
+                © 2026 ShopFácil. Todos os direitos reservados.
+            </p>
+        </div>
+    </footer>
+
+<script>
+  function selecionarTamanho(botao, preco) {
+
+    document
+    .querySelectorAll('.tamanho-produto')
+    .forEach(btn => btn.classList.remove('ativo'));
+
+    botao.classList.add('ativo');
+
+    document.getElementById('precoAtual').value = preco;
+
+    document.getElementById('tamanhoSelecionado').value = 
+        botao.innerText;
+
+    document.getElementById('precoExibido').innerText =
+      "R$ " + preco.toFixed(2).replace('.', ',');
+
+    document.getElementById('precoAntigo').innerText = 
+      "R$ " + (preco + 30).toFixed(2).replace('.', ',');
+
+    document.getElementById('parcelamento').innerText =
+      "ou 12x de R$ " + 
+      (preco / 12).toFixed(2).replace('.', ',') + " sem juros";
+
+  }
+
+  function selecionarSabor(botao, sabor) {
+    document
+    .querySelectorAll('.sabor-produto')
+    .forEach(btn => btn.classList.remove('ativo'));
+
+    botao.classList.add('ativo');
+
+    document.getElementById('saborSelecionado').value = sabor;
+  }
+
+  function calcularTotal(event) {
+    
+    event.preventDefault();
+
+    let quantidade = 
+        parseFloat(document.getElementById('quantidade').value);
+
+    let preco = 
+        parseInt(document.getElementById('precoAtual').value);
+
+    let tamanho =
+        document.getElementById('tamanhoSelecionado').value;
+
+    let sabor =
+        document.getElementById('saborSelecionado').value;
+
+    if(tamanho === ""){
+      alert("Selecione um tamanho!");
+      return 0;
+    }
+
+    if(sabor === ""){
+      alert("Selecione um sabor!");
+      return 0;
+    }
+    let total = quatidade * preco;
+
+    document.getElementById('total').innerText =
+      "Total: R$ " + 
+      total.toFixed(2).replace('.', ',') +
+      " | Tamanho: " + tamanho +
+      " | Sabor: " + sabor;
+  }
+
+</script>
+
+<script src="js/main.js"></script>
+</body>
+</html>

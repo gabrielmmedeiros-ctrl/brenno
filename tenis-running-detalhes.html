@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ShopFácil | Detalhes do Produto</title>
+
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+<header>
+      <div class="logo">
+        <img 
+        src="img/logo.png" 
+        alt="Logo SHOPFÁCIL"
+        width="50"
+        height="50">
+        
+        <h1>SHOP<span>FÁCIL</span></h1>
+      </div>
+</header>
+
+<section class="breadcrumb">
+    <a href="index.html">Início</a>
+    <span>/</span>
+    <a href="produtos.html">Produtos</a>
+    <span>/</span>
+    <span class="atual">Tênis Running Pro</span>
+</section>
+<main>
+
+    <section class="detalhe-produto">
+        <div class="galeria">
+            <div class="miniaturas">
+                <img
+                src="img/tenis-banner.png"
+                onclick="trocarImagem(this)"
+                class="ativa">
+                <img
+                src="img/tenis-azul.png"
+                onclick="trocarImagem(this)">
+                <img
+                src="img/tenis-branco.png"
+                onclick="trocarImagem(this)">
+                <img
+                src="img/3modelos-tenis.png"
+                onclick="trocarImagem(this)">
+            </div>
+
+            <div class="imagem-principal">
+                <img
+                id="imagemPrincipal"
+                src="img/tenis-banner.png"
+                alt="Tênis Running Pro">
+            </div>
+        </div>
+
+        <div class="info-produto">
+        <h1>Tênis Running Pro</h1>
+
+            <div class="avaliacao-produto">
+                ★★★★★
+                <span>(128 avaliações)</span>
+            </div>
+            <div class="preco-produto">
+                <span class="preco-antigo">
+                    R$ 299,90</span>
+                <h2>R$ 249,90</h2>
+                <p>ou 12x de R$20,82</p>
+            </div>
+
+            <section class="descricao-produto">
+                <h2>Descrição do Produto</h2>
+                <p>
+                O Tênis Running Pro foi desenvolvido para atletas
+                que buscam desempenho, estabilidade e conforto
+                durante treinos e competições.
+                </p>
+            </section>
+
+            <h3>Cor</h3>
+                <div class="cores">
+                    <button
+                        class="cor-preto ativo"
+                        data-cor="Preto/Laranja"
+                        onclick="selecionarCor(this, 'img/tenis-banner.png')">
+                    </button>
+                    <button
+                        class="cor-azul"
+                        data-cor="Azul/Laranja"
+                        onclick="selecionarCor(this, 'img/tenis-azul.png')">
+                    </button>
+                    <button
+                        class="cor-branco"
+                        data-cor="Branco/Laranja"
+                        onclick="selecionarCor(this, 'img/tenis-branco.png')">
+                    </button>
+                </div>
+
+            <input
+            type="hidden"
+            id="corSelecionada"
+            value="Preto/Laranja">
+            
+            <div class="especificacoes">
+                <div class="item-especificacao">
+                    <strong>Material</strong>
+                    <span>Polietileno</span>
+                </div>
+
+                <div class="item-especificacao">
+                    <strong>Peso</strong>
+                    <span>320g</span>
+                </div>
+
+                <div class="item-especificacao">
+                    <strong>Indicação</strong>
+                    <span>Corrida e caminhada</span>
+                </div>
+
+                <div class="item-especificacao">
+                    <strong>Solado</strong>
+                    <span>Borracha antiderrapante</span>
+                </div>
+
+            </div>
+        <br>
+            <form onsubmit="calcularTotal(event)">
+                <label for="tamanho">Tamanho</label>
+                <div class="tamanhos">
+                    <button type="button" class="ativo" onclick="selecionarTamanho(this)">38</button>
+                    <button type="button" onclick="selecionarTamanho(this)">39</button>
+                    <button type="button" onclick="selecionarTamanho(this)">40</button>
+                    <button type="button" onclick="selecionarTamanho(this)">41</button>
+                    <button type="button" onclick="selecionarTamanho(this)">42</button>
+                </div>
+                <input type="hidden" id="tamanhoSelecionado" value="38">
+                <p id="tamanhoSelecionadoTexto" class="tamanho-selecionado">Tamanho selecionado: 38</p>
+                <br><br>
+                <label for="quantidade">Quantidade:</label>
+                <input type="number" id="quantidade" value="1" min="1">
+                <br><br>
+                <div class="acoes-produto">
+                    <button class="comprar">
+                    Comprar Agora
+                    </button>
+                    <button class="carrinho-btn" onclick="adicionarAoCarrinho(event)">
+                    Adicionar ao Carrinho
+                    </button>
+                </div>
+                <div class="frete">
+                    <h3>Calcular frete</h3>
+                    <input
+                    type="text"
+                    placeholder="Digite seu CEP">
+                    <button>
+                    Calcular
+                    </button>
+                </div>
+                <div class="beneficios">
+                    <div>🚚 Frete grátis acima de R$199</div>
+                    <div>🔒 Compra segura</div>
+                    <div>↩️ Troca em até 30 dias</div>
+                    <div>💳 Parcelamento em até 12x</div>
+                </div>
+            </form>
+        <p id="total"></p>
+        </div>
+    </section>
+</main>
+
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-coluna">
+                <h3>SHOP<span>FÁCIL</span></h3>
+                <p>
+                    Equipamentos esportivos, tecnologia
+                    e acessórios para elevar sua performance.
+                </p>
+            </div>
+            <div class="footer-coluna">
+                <h4>Navegação</h4>
+                <a href="index.html">Início</a>
+                <a href="produtos.html">Produtos</a>
+                <a href="contato.html">Contato</a>
+            </div>
+            <div class="footer-coluna">
+                <h4>Categorias</h4>
+                <a href="#">Corrida</a>
+                <a href="#">Musculação</a>
+                <a href="#">Tecnologia</a>
+                <a href="#">Suplementos</a>
+            </div>
+            <div class="footer-coluna">
+                <h4>Contato</h4>
+                <p>(71) 98447-7541</p>
+                <p>contato@shopfacil.com</p>
+                <p>Salvador - BA</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>
+                © 2026 ShopFácil. Todos os direitos reservados.
+            </p>
+        </div>
+    </footer>
+
+<script>
+  function calcularTotal(event) {
+
+    event.preventDefault();
+
+    let quantidade = 
+    document.getElementById("quantidade").value;
+
+    let tamanho = 
+    document.getElementById("tamanho").value;
+
+    if (tamanho === ""){
+      alert("Selecione um item!");
+      return 0;
+    }
+
+    let preco = 249.90;
+
+    let total = quantidade * preco;
+
+    document.getElementById("total").innerText =
+      "Total: R$ " + total.toFixed(2) + 
+      " | Tamanho: " + tamanho;
+  }
+</script>
+ 
+<script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShopFácil | Produtos</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    
+    <header>
+        <div class="logo">
+            <img 
+            src="img/logo.png" 
+            alt="Logo SHOPFÁCIL"
+            width="50"
+            height="50">
+            
+            <h1>SHOP<span>FÁCIL</span></h1>
+        </div>
+
+        <nav>
+            <a href="index.html">Início</a>
+            <a href="produtos.html">Produtos</a>
+            <a href="categorias.html">Categorias</a>
+            <a href="contato.html">Contato</a>
+        </nav>
+
+        <div class="carrinho">
+            <a href="carrinho.html" class="carrinho-link" aria-label="Ir para o carrinho">
+                🛒
+                <span id="contadorCarrinho" class="contador">0</span>
+            </a>
+        </div>
+    </header>
+    <section class="banner-produtos">
+
+    <div class="banner-produtos-conteudo">
+
+        <span>NOSSA COLEÇÃO</span>
+
+        <h1>
+            Produtos para elevar sua performance
+        </h1>
+
+        <p>
+            Encontre roupas, acessórios e tecnologia
+            para seu treino.
+        </p>
+
+    </div>
+
+</section>
+<section class="barra-busca">
+
+    <input
+    id="buscaProdutos"
+    type="search"
+    placeholder="Buscar produto..."
+    oninput="applyProductFilters()">
+
+</section>
+<section class="catalogo">
+
+    <aside class="filtros">
+
+        <h2>Filtros</h2>
+
+        <div class="grupo-filtro">
+
+            <h3>Categorias</h3>
+
+            <label>
+                <input type="checkbox" data-category="Corrida" onchange="applyProductFilters()">
+                Corrida
+            </label>
+
+            <label>
+                <input type="checkbox" data-category="Musculação" onchange="applyProductFilters()">
+                Musculação
+            </label>
+
+            <label>
+                <input type="checkbox" data-category="Tecnologia" onchange="applyProductFilters()">
+                Tecnologia
+            </label>
+
+            <label>
+                <input type="checkbox" data-category="Suplementos" onchange="applyProductFilters()">
+                Suplementos
+            </label>
+
+        </div>
+
+        <div class="grupo-filtro">
+
+            <h3>Faixa de Preço</h3>
+
+            <label>
+                <input type="checkbox" name="preco" data-price="ate100" onchange="applyProductFilters()">
+                Até R$100
+            </label>
+
+            <label>
+                <input type="checkbox" name="preco" data-price="100-300" onchange="applyProductFilters()">
+                R$100 - R$300
+            </label>
+
+            <label>
+                <input type="checkbox" name="preco" data-price="acima300" onchange="applyProductFilters()">
+                Acima de R$300
+            </label>
+
+        </div>
+
+        <div class="grupo-filtro">
+
+            <h3>Avaliação</h3>
+
+            <label>
+                <input type="checkbox" data-rating="5" onchange="applyProductFilters()">
+                ★★★★★
+            </label>
+
+            <label>
+                <input type="checkbox" data-rating="4" onchange="applyProductFilters()">
+                ★★★★☆
+            </label>
+
+            <label>
+                <input type="checkbox" data-rating="3" onchange="applyProductFilters()">
+                ★★★☆☆
+            </label>
+
+        </div>
+
+    </aside>
+
+    <div class="produtos-container">
+
+        <div class="grid-produtos">
+
+            <article class="card-produto" data-category="Suplementos">
+
+                <img src="img/creatina.png"
+                alt="Creatina Monoidratada">
+
+                <h3>Creatina Monoidratada</h3>
+
+                <div class="avaliacao">
+                    ★★★★★
+                </div>
+
+                <p class="preco">
+                    R$ 79,90
+                </p>
+
+                <a href="creatina-monoidratada-detalhes.html"
+                class="botao">
+                    Ver Produto
+                </a>
+            </article>
+
+            <article class="card-produto" data-category="Suplementos">
+
+                <img src="img/pre-treino.png"
+                alt="Pré Treino">
+
+                <h3>Pré Treino</h3>
+
+                <div class="avaliacao">
+                    ★★★★★
+                </div>
+
+                <p class="preco">
+                    R$ 69,90
+                </p>
+
+                <a href="pre-treino-detalhes.html"
+                class="botao">
+                    Ver Produto
+                </a>
+            </article>
+
+            <article class="card-produto" data-category="Suplementos">
+
+                <img src="img/whey.png"
+                alt="Whey Protein">
+
+                <h3>Whey Protein</h3>
+
+                <div class="avaliacao">
+                    ★★★★★
+                </div>
+
+                <p class="preco">
+                    R$ 119,90
+                </p>
+
+                <a href="whey-protein-detalhes.html"
+                class="botao">
+                    Ver Produto
+                </a>
+            </article>
+
+        </div>
+
+        <div class="paginacao">
+
+            <a href="produtos.html">1</a>
+            <a href="produtos2.html">2</a>
+            <a href="produtos3.html">3</a>
+        </div>
+
+    </div>
+
+</section>
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-coluna">
+                <h3>SHOP<span>FÁCIL</span></h3>
+                <p>
+                    Equipamentos esportivos, tecnologia
+                    e acessórios para elevar sua performance.
+                </p>
+            </div>
+            <div class="footer-coluna">
+                <h4>Navegação</h4>
+                <a href="index.html">Início</a>
+                <a href="produtos.html">Produtos</a>
+                <a href="contato.html">Contato</a>
+            </div>
+            <div class="footer-coluna">
+                <h4>Categorias</h4>
+                <a href="#">Corrida</a>
+                <a href="#">Musculação</a>
+                <a href="#">Tecnologia</a>
+                <a href="#">Suplementos</a>
+            </div>
+            <div class="footer-coluna">
+                <h4>Contato</h4>
+                <p>(71) 98447-7541</p>
+                <p>contato@shopfacil.com</p>
+                <p>Salvador - BA</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>
+                © 2026 ShopFácil. Todos os direitos reservados.
+            </p>
+        </div>
+    </footer>
+    <script src="js/main.js"></script>
+</body>
+</html>

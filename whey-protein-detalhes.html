@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ShopFácil | Detalhes do Produto</title>
+
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+<header>
+      <div class="logo">
+        <img 
+        src="img/logo.png" 
+        alt="Logo SHOPFÁCIL"
+        width="50"
+        height="50">
+        
+        <h1>SHOP<span>FÁCIL</span></h1>
+      </div>
+      <div class="carrinho">
+        <a href="carrinho.html" class="carrinho-link" aria-label="Ir para o carrinho">
+          🛒
+          <span id="contadorCarrinho" class="contador">0</span>
+        </a>
+      </div>
+</header>
+
+<section class="breadcrumb">
+    <a href="index.html">Início</a>
+    <span>›</span>
+    <a href="produtos2.html">Produtos</a>
+    <span>›</span>
+    <span class="atual">Whey Protein</span>
+
+</section>
+<main>
+
+  <section class="detalhe-produto">
+
+    <div class="galeria">
+        <div class="miniaturas">
+            <img 
+            src="img/whey.png"
+            onclick="trocarImagem(this)"
+            class="ativa">
+        </div>
+
+        <div class="imagem-principal">
+            <img 
+            id="imagemPrincipal"
+            src="img/whey.png"
+            alt="Whey Protein">
+        </div>
+    </div>
+
+    <div class="info-produto">
+      <h1>Whey Protein</h1>
+      <div class="avaliacao-produto">
+          ★★★★★
+          <span>(128 avaliações)</span>
+      </div>
+
+      <div class="preco-produto">
+      <span class="preco-antigo" id="precoAntigo">
+        R$ 159,90
+      </span>
+      <h2 id="precoExibido">
+        R$ 119,90 
+      </h2>
+      <p id="parcelamento">
+        ou 12x de R$ 9,99 sem juros
+      </p>
+      </div>
+
+      <section class="descricao-produto">
+        <h2>Descrição do Produto</h2>
+        <p>
+        O Whey Protein é um suplemento alimentar de alta qualidade, ideal para atletas e pessoas que 
+        buscam ganho de massa muscular. Rico em proteínas, ele auxilia na recuperação muscular após os 
+        treinos e contribui para o desenvolvimento de uma musculatura mais forte e definida. 
+        Disponível em diversos sabores, é a escolha perfeita para quem deseja potencializar seus 
+        resultados de forma prática e saborosa.
+        </p>
+      </section>
+
+      <h3>Tamanhos</h3>
+
+      <div class="tamanhos-produto">
+
+        <button
+          type="button"
+          class="tamanho-produto ativo"
+          data-preco="119.90"
+          onclick="selecionarTamanho(this, 119.90)">
+          500g
+        </button>
+
+        <button
+          type="button"
+          class="tamanho-produto"
+          data-preco="179.90"
+          onclick="selecionarTamanho(this, 179.90)">
+          1kg
+        </button>
+
+        <button
+          type="button"
+          class="tamanho-produto"
+          data-preco="359.90"
+          onclick="selecionarTamanho(this, 359.90)">
+          2kg
+        </button>
+
+      </div>
+      
+      <h3>Sabor</h3>
+      
+      <div class="sabores-produto">
+        <button
+          type="button"
+          class="sabor-produto ativo"
+          data-sabor="Chocolate"
+          onclick="selecionarSabor(this, 'Chocolate')">
+          Chocolate
+        </button>
+
+        <button
+          type="button"
+          class="sabor-produto"
+          data-sabor="Baunilha"
+          onclick="selecionarSabor(this, 'Baunilha')">
+          Baunilha
+        </button>
+
+        <button
+          type="button"
+          class="sabor-produto"
+          data-sabor="Morango"
+          onclick="selecionarSabor(this, 'Morango')">
+          Morango
+        </button>
+
+      </div>
+
+      <input
+      type="hidden"
+      id="precoAtual"
+      value="119.90">
+
+      <input
+      type="hidden"
+      id="tamanhoSelecionado"
+      value="500g">
+
+      <input
+      type="hidden"
+      id="saborSelecionado"
+      value="Chocolate">
+
+      <div class="especificacoes">
+        <div class="item-especificacao">
+          <strong>Conteúdo</strong>
+          <span>500g • 1kg • 2kg</span>
+        </div>
+
+        <div class="item-especificacao">
+          <strong>Tipo</strong>
+          <span>Whey Protein Concentrado</span>
+        </div>
+
+        <div class="item-especificacao">
+          <strong>Porções</strong>
+          <span>Quantidade varia conforme a embalagem</span>
+        </div>
+
+        <div class="item-especificacao">
+          <strong>Sabor</strong>
+          <span>Chocolate • Baunilha • Morango</span>
+        </div>
+
+        <div class="item-especificacao">
+          <strong>Indicação</strong>
+          <span>Ganho de massa muscular</span>
+        </div>
+        
+        <div class="item-especificacao">
+          <strong>Validade</strong>
+          <span>12 meses</span>
+        </div>
+
+      </div>
+
+      <br>
+
+      <form onsubmit="calcularTotal(event)">
+        <label for="tamanho">Tamanho / Conteúdo</label>
+        <div class="tamanhos">
+          <button type="button" onclick="selecionarTamanho(this)">500g</button>
+          <button type="button" class="ativo" onclick="selecionarTamanho(this)">1kg</button>
+          <button type="button" onclick="selecionarTamanho(this)">2kg</button>
+        </div>
+        <input type="hidden" id="tamanhoSelecionado" value="1kg">
+        <p id="tamanhoSelecionadoTexto" class="tamanho-selecionado">Tamanho selecionado: 1kg</p>
+        <br><br>
+        <label for="quantidade">Quantidade:</label>
+        <input type="number" id="quantidade" value="1" min="1">
+        <br><br>
+
+        <div class="acoes-produto">
+          <button class="comprar">
+            Comprar Agora
+          </button>
+          
+          <button class="carrinho-btn" onclick="adicionarAoCarrinho(event)">
+            Adicionar ao Carrinho
+          </button>
+        </div>
+
+        <div class="frete">
+          <h3>Calcular frete</h3>
+          <input
+            type="text"
+            placeholder="Digite seu CEP">
+          <button>
+            Calcular
+          </button>
+        </div>
+
+        <div class="beneficios">
+          <div>🚚 Frete grátis acima de R$199</div>
+          <div>🔒 Compra segura</div>
+          <div>↩️ Troca em até 30 dias</div>
+          <div>💳 Parcelamento em até 6x</div>
+        </div>
+      </form>
+      <p id="total"></p>
+    </div>
+  </section>
+</main>
+
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-coluna">
+                <h3>SHOP<span>FÁCIL</span></h3>
+                <p>
+                    Equipamentos esportivos, tecnologia
+                    e acessórios para elevar sua performance.
+                </p>
+            </div>
+            <div class="footer-coluna">
+                <h4>Navegação</h4>
+                <a href="index.html">Início</a>
+                <a href="produtos.html">Produtos</a>
+                <a href="contato.html">Contato</a>
+            </div>
+            <div class="footer-coluna">
+                <h4>Categorias</h4>
+                <a href="#">Corrida</a>
+                <a href="#">Musculação</a>
+                <a href="#">Tecnologia</a>
+                <a href="#">Suplementos</a>
+            </div>
+            <div class="footer-coluna">
+                <h4>Contato</h4>
+                <p>(71) 98447-7541</p>
+                <p>contato@shopfacil.com</p>
+                <p>Salvador - BA</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>
+                © 2026 ShopFácil. Todos os direitos reservados.
+            </p>
+        </div>
+    </footer>
+
+<script>
+  function selecionarTamanho(botao, preco) {
+    
+    document
+    .querySelectorAll('.tamanho-produto')
+    .forEach(btn => btn.classList.remove('ativo'));
+
+    botao.classList.add('ativo');
+
+    document.getElementById('precoAtual').value = preco;
+
+    document.getElementById('tamanhoSelecionado').value = 
+        botao.innerText;
+
+    document.getElementById('precoExibido').innerText =
+        "R$ " + preco.toFixed(2).replace('.', ',');
+
+    document.getElementById('precoAntigo').innerText =
+        "R$ " + (preco + 40).toFixed(2).replace('.', ',');
+
+    document.getElementById('parcelamento').innerText =
+        "ou 12x de R$ " + 
+        (preco / 12).toFixed(2).replace('.', ',') + " sem juros";
+    
+  }
+
+  function selecionarSabor(botao, sabor) {
+    
+    document
+    .querySelectorAll('.sabor-produto')
+    .forEach(btn => btn.classList.remove('ativo'));
+
+    botao.classList.add('ativo');
+
+    document.getElementById('saborSelecionado').value = sabor;
+  }
+
+  function calcularTotal(event){
+
+    event.preventDefault();
+
+    let quantidade = 
+        parseInt(document.getElementById('quantidade').value);
+
+    let preco = 
+        parseFloat(document.getElementById('precoAtual').value);
+
+    let tamanho = 
+        document.getElementById('tamanhoSelecionado').value;
+
+    let sabor = 
+        document.getElementById('saborSelecionado').value;
+
+    if(tamanho === ""){
+      alert("Selecione um tamanho!");
+      return 0;
+    }
+
+    if(sabor === ""){
+      alert("Selecione um sabor!");
+      return 0;
+    }
+
+    let total = quantidade * preco;
+
+    document.getElementById('total').innerText =
+      "Total: R$ " + 
+      total.toFixed(2).replace(".", ",") + 
+      " | Tamanho: " + tamanho + 
+      " | Sabor: " + sabor;
+  }
+</script>
+
+<script src="js/main.js"></script>
+</body>
+</html>

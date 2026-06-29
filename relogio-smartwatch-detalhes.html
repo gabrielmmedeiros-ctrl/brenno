@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ShopFácil | Detalhes do Produto</title>
+
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+<header>
+      <div class="logo">
+        <img 
+        src="img/logo.png" 
+        alt="Logo SHOPFÁCIL"
+        width="50"
+        height="50">
+        
+        <h1>SHOP<span>FÁCIL</span></h1>
+      </div>
+</header>
+
+<section class="breadcrumb">
+    <a href="index.html">Início</a>
+    <span>›</span>
+    <a href="produtos.html">Produtos</a>
+    <span>›</span>
+    <span class="atual">Smartwatch Fitness</span>
+</section>
+<main>
+
+  <section class="detalhe-produto">
+    <div class="galeria">
+        <div class="miniaturas">
+            <img 
+            src="img/smartwatch.png">
+        </div>
+
+        <div class="imagem-principal">
+            <img 
+            id="imagemPrincipal"
+            src="img/smartwatch.png"
+            alt="Smartwatch">
+        </div>
+    </div>
+
+    <div class="info-produto">
+    <h1>SmartWatch Fitness</h1>
+        
+        <div class="avaliacao-produto">
+            ★★★★★
+            <span>(128 avaliações)</span>
+        </div>
+
+        <div class="preco-produto">
+            <span class="preco-antigo">
+              R$ 259,90
+            </span>
+            <h2>R$ 199,90</h2>
+            <p>ou 12x de R$16,82</p>
+        </div>
+
+        <section class="descricao-produto">
+          <h2>Descrição do Produto</h2>
+          <p>
+            O Smartwatch Fitness é o companheiro ideal para 
+            quem busca monitorar sua saúde e desempenho físico. 
+            Com recursos avançados, ele acompanha seus passos, 
+            frequência cardíaca, qualidade do sono e muito mais. 
+            Além disso, possui design moderno e resistente à água, 
+            tornando-o perfeito para qualquer atividade.
+          </p>
+        </section>
+
+    <h3>Cor</h3>
+    <div class="cores">
+        <button 
+          class="cor-preto ativo"
+          data-cor="Preta">
+        </button>
+    </div>
+
+    <input
+    type="hidden"
+    id="corSelecionada"
+    value="Preta">
+
+    <div class="especificacoes">
+        <div class="item-especificacao">
+            <strong>Resolução da Tela:</strong> 
+            <span>240x240 pixels</span>
+        </div>"
+
+        <div class="item-especificacao">
+            <strong>Conectividade:</strong> 
+            <span>Bluetooth 5.0</span>
+        </div>
+
+        <div class="item-especificacao">
+            <strong>Compatibilidade:</strong> 
+            <span>Android e iOS</span>
+        </div>
+
+        <div class="item-especificacao">
+            <strong>Resistência à Água:</strong> 
+            <span>IP68</span>
+        </div>
+
+        <div class="item-especificacao">
+            <strong>Bateria:</strong> 
+            <span>Até 7 dias de uso</span>
+        </div>
+
+        <div class="item-especificacao">
+            <strong>Funções Adicionais:</strong> 
+            <span>Monitoramento de sono, notificações de chamadas e mensagens, controle de música</span>
+        </div>
+    </div>
+</div>
+<br><br>
+
+      <form onsubmit="calcularTotal(event)">
+      <label for="quantidade">Quantidade:</label>
+      <input type="number" id="quantidade" value="1" min="1">
+<br><br>
+
+      <div class="acoes-produto">
+          <button class="comprar">
+            Comprar Agora
+          </button>
+
+          <button class="carrinho-btn" onclick="adicionarAoCarrinho(event)">
+            Adicionar ao Carrinho
+          </button>
+      </div>
+
+      <div class="frete">
+        h3>Calcular frete</h3>
+        <input
+        type="text"
+        placeholder="Digite seu CEP">
+        <button>
+          Calcular
+        </button>
+      </div>
+
+      <div class="beneficios">
+          <div>🚚 Frete grátis acima de R$199</div>
+          <div>🔒 Compra segura</div>
+          <div>↩️ Troca em até 30 dias</div>
+          <div>💳 Parcelamento em até 12x</div>
+      </div>
+      </form>
+
+      <p id="total"></p>
+    </div>
+  </section>
+</main>
+
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-coluna">
+                <h3>SHOP<span>FÁCIL</span></h3>
+                <p>
+                    Equipamentos esportivos, tecnologia
+                    e acessórios para elevar sua performance.
+                </p>
+            </div>
+            <div class="footer-coluna">
+                <h4>Navegação</h4>
+                <a href="index.html">Início</a>
+                <a href="produtos.html">Produtos</a>
+                <a href="contato.html">Contato</a>
+            </div>
+            <div class="footer-coluna">
+                <h4>Categorias</h4>
+                <a href="#">Corrida</a>
+                <a href="#">Musculação</a>
+                <a href="#">Tecnologia</a>
+                <a href="#">Suplementos</a>
+            </div>
+            <div class="footer-coluna">
+                <h4>Contato</h4>
+                <p>(71) 98447-7541</p>
+                <p>contato@shopfacil.com</p>
+                <p>Salvador - BA</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>
+                © 2026 ShopFácil. Todos os direitos reservados.
+            </p>
+        </div>
+    </footer>
+
+<script>
+  function calcularTotal(event) {
+
+    event.preventDefault();
+
+    let quantidade = 
+
+    document.getElementById("quantidade").value;
+
+    let preco = 199.90; 
+
+    let total = quantidade * preco;
+
+    document.getElementById("total").innerText =
+      "Total: R$ " + total.toFixed(2);
+  }
+</script>
+
+<script src="js/main.js"></script>
+</body>
+</html>
